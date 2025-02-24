@@ -1,8 +1,17 @@
-...
 pipeline {  
     agent any  
     
     stages {  
+        stage("Test1") {
+            when {
+                not {
+                    branch "master"
+                }
+            }
+            steps {
+                echo "Test stage."
+            }
+        }
         /*
 		Jenkinsfile is coming from this gitrepo. Hence below step not required.
 		stage ('Git-Checkout') {  
